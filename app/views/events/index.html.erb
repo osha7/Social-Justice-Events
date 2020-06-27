@@ -1,0 +1,11 @@
+<div class="container">
+<br>
+    <h1>Upcoming Events</h1>
+
+    <% @events.each do |event| %>
+        <%= link_to "event.name", event_path(event) %>
+    <% end %>
+
+
+  
+</div>

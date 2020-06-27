@@ -2,6 +2,12 @@
 show page<br>
 oooooohhhhhh we made it here!!!!
 
+<h1> Hello <%= @user.name %> </h1> 
+
+<% @user.events.each do |event| %>
+    <%= event.name %>
+<% end %>
+
 
 <br></br>
 <%= link_to "Log Out", '/logout' %>
