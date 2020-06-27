@@ -1,0 +1,18 @@
+<div class="container">
+<br>
+    <h1>Log In</h1>
+    <p>Need to join the movement? <%= link_to "Sign Up", '/signup' %></p>
+    <br>
+    <%= form_with url:'/sessions', method: :post do |f| %>
+
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <br>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br></br>
+        <%= f.submit "Log In" %>
+
+    <% end %>
+
+</div>

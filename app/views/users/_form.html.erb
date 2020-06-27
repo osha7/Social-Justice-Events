@@ -1,0 +1,24 @@
+<br>
+<div class="container">
+
+    <%= form_for @user do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, "size" => 30 %>
+    <br>
+        <%= f.label :username %>
+        <%= f.text_field :username, "size" => 30 %>
+
+    <br>
+        <%= f.label :email %>
+        <%= f.text_field :email, "size" => 30 %>
+
+    <br>
+        <%= f.label :password %>
+        <%= f.password_field :password, "size" => 30 %>
+    <br></br>
+        <%= f.submit %>
+
+    <% end %>
+
+</div>
