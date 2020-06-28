@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     end
     
     def create
-        @event = Event.create(event_params)
+        @event = Event.new(event_params)
         if @event.save
             redirect_to events_path
         else
@@ -28,16 +28,22 @@ class EventsController < ApplicationController
     end
     
     def update
+         # if @user.admin
+        if @event.update(event_params)
+            redirect_to event_path(@event)
+        else
+            render :edit
+        end
        
     end
 
     def destroy
         # if @user.admin
-        #     event.destroy
-        #     redirect_to events_path
-        # else
-        #     render :index
-        # end
+        if @event.destroy
+            redirect_to events_path
+        else
+            render :index
+        end
 
     end
 

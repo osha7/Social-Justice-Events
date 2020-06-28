@@ -1,5 +1,13 @@
 <br>
 <div class="container">
+<% if @event.errors.any? %>
+    <ul>
+    <% @event.errors.full_messages.each do |message| %>
+        <%= message %><br>
+    <% end %>
+    </ul>
+<% end %>
+    
 
     <%= form_for @event do |f| %>
         <%= f.label "Title:" %><br>
@@ -7,7 +15,7 @@
         <br>
 
         <%= f.label "Category:" %><br>
-        <%= f.collection_select :category, Event.all, :category, :category, include_blank: 'Please select category from this dropdown' %>
+        <%= f.select :category, options_for_select(sj_categories_placeholder, " ") %>
         <br>
 
         <%= f.label "Address:" %><br>
@@ -32,6 +40,6 @@
         <%= f.text_area :about_content, cols: "50", rows: "10" %>
         <br></br>
 
-        <%= f.submit "Create Event" %>
+        <%= f.submit %>
 
         <% end %>

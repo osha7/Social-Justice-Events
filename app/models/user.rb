@@ -5,9 +5,11 @@ class User < ApplicationRecord
             # @user.events
 
     has_secure_password
-
+    validates_presence_of :name, :username, :email, :password
     validates :username, uniqueness: true
-    
+    validates :email, uniqueness: true
+
+
 
     def self.find_or_create_by_omniauth(auth_hash)
         self.where(:email => auth_hash["info"]["email"]).first_or_create do |user|

@@ -3,7 +3,7 @@
     <h1>Upcoming Events</h1>
 
     <% @events.each do |event| %>
-        <%= link_to "event.name", event_path(event) %>
+        <%= link_to event.title, event_path(event) %>
     <% end %>
 
 

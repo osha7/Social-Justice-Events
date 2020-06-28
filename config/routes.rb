@@ -13,7 +13,7 @@ get '/auth/:provider/callback' => 'sessions#create'
 
 get '/signup' => 'users#new'
         
-resources :users
+resources :users, only: [:new, :create, :show]
 resources :events
 
 end
