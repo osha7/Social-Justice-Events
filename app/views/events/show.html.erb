@@ -1,1 +1,27 @@
-<h1><%= @event.title %></h1>
+<br></br>
+
+<div class="container">
+
+    <h1><%= @event.title %></h1>
+    <br>
+        <%= @event.category %>
+        <br>
+        <%= @event.address %>
+        <br>
+        <%= @event.city %> <%= @event.state %>,  <%= @event.zip %>
+        <br>
+        <%= @event.date.strftime("%B %e, %Y") %> - <%= @event.time %>
+        <br></br>
+        Event Summary:
+        <li><%= @event.about_content %></li>
+        <br>
+</div>
+
+<br></br>
+<%= link_to "Edit Event", edit_event_path %>
+<br>
+<%= link_to "All Events", events_path %>
+
+
+
+

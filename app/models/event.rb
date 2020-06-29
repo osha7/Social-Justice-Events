@@ -13,6 +13,8 @@ class Event < ApplicationRecord
     # validate :date_must_be_after_today
     validates_with DateValidator
 
+    accepts_nested_attributes_for :users
+
     # def date_must_be_after_today
     #     if date <= Time.now
     #         errors.add(:date, "must be after today")

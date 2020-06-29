@@ -15,5 +15,6 @@ get '/signup' => 'users#new'
         
 resources :users, only: [:new, :create, :show]
 resources :events
+resources :categories, except: [:destroy]
 
 end

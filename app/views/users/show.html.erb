@@ -4,10 +4,17 @@ oooooohhhhhh we made it here!!!!
 
 <h1> Hello <%= @user.name %> </h1> 
 
-<% @user.events.each do |event| %>
-    <%= event.name %>
-<% end %>
+<%# @user.events.each do |event| %>
+    <%#= event.name %>
+<%# end %>
+
+
 
 
 <br></br>
+
+<%= link_to "See All Events", '/events' %>
+<br>
+<%= link_to "Create New Event", '/events/new' %>
+<br>
 <%= link_to "Log Out", '/logout' %>

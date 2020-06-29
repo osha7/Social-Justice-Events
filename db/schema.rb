@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_173907) do
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.string "category"
     t.string "address"
     t.string "city"
     t.string "state"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_06_27_173907) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "about_content"
+    t.string "category"
   end
 
   create_table "user_events", force: :cascade do |t|

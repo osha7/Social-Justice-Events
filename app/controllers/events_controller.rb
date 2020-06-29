@@ -12,10 +12,14 @@ class EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         if @event.save
+            #byebug
+            @userevent = @event.user_events.build(user_id: current_user.id, admin: true)
+            @userevent.save
             redirect_to events_path
         else
             render :new
         end
+        
 
     end
 
@@ -24,7 +28,11 @@ class EventsController < ApplicationController
     end
 
     def edit
-       
+        #byebug
+        # if current_user.events_where_admin
+        # else
+        #     render :index
+        # end
     end
     
     def update

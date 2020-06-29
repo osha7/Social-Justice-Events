@@ -8,8 +8,13 @@
     </ul>
 <% end %>
     
+    <%#= form_for @userevent do |f| %>
+        <%#= f.label "Event Admin (check here):" %>
+        <%#= f.check_box :admin %>
+    <%# end %>
 
     <%= form_for @event do |f| %>
+        
         <%= f.label "Title:" %><br>
         <%= f.text_field :title , "size" => 30 %>
         <br>
