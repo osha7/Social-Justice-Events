@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.integer :zip
       t.date :date
       t.time :time
+      t.string :about_content
   
 
       t.timestamps

@@ -13,8 +13,12 @@ get '/auth/:provider/callback' => 'sessions#create'
 
 get '/signup' => 'users#new'
         
-resources :users, only: [:new, :create, :show]
+resources :users, only: [:new, :create, :show] do
+  #nested routes
+  resources :events
+end
 resources :events
-resources :categories, except: [:destroy]
-
+#resources :categories, except: [:destroy]
+# post '/users_events', to: 'users_events#create', as: 'new_usersevent'
+resources :users_events
 end

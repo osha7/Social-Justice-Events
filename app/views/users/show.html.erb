@@ -2,19 +2,25 @@
 show page<br>
 oooooohhhhhh we made it here!!!!
 
-<h1> Hello <%= @user.name %> </h1> 
+<h2> Hello <%= @user.name %> </h2> 
 
-<%# @user.events.each do |event| %>
-    <%#= event.name %>
-<%# end %>
+<%= link_to "See All Events", '/events' %>
+<br>
+<%= link_to "Create New Event", '/events/new' %>
+
+<br></br>
+
+<h5>Events Created By You:</h5>
+<% @user.events.each do |event| %>
+    <%# byebug %>
+    <%= link_to event.title, event_path(event) %><br>
+<% end %>
+
 
 
 
 
 <br></br>
-
-<%= link_to "See All Events", '/events' %>
-<br>
-<%= link_to "Create New Event", '/events/new' %>
-<br>
-<%= link_to "Log Out", '/logout' %>
+<br></br>
+<p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
+<%= link_to "Log Out", logout_path %></p><br> 

@@ -24,10 +24,17 @@ class EventsController < ApplicationController
     end
 
     def show
-       
+    #    @users_event = @event.users_events.build 
+    #    @users_event.save
+    #    @users_event.user = current_user
     end
 
     def edit
+        if @event.is_admin?(current_user)
+            render :edit
+        else 
+            redirect_to events_path
+        end 
         #byebug
         # if current_user.events_where_admin
         # else
@@ -58,7 +65,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:title, :category, :address, :city, :state, :zip, :date, :time, :about_content)
+        params.require(:event).permit(:title, :category, :address, :city, :state, :zip, :date, :time, :about_content, users_event_attributes:[:comment])
     end
 
     def set_event
