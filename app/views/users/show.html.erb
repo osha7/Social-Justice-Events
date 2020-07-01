@@ -10,11 +10,21 @@ oooooohhhhhh we made it here!!!!
 
 <br></br>
 
-<h5>Events Created By You:</h5>
-<% @user.events.each do |event| %>
-    <%# byebug %>
-    <%= link_to event.title, event_path(event) %><br>
-<% end %>
+<h5>Events You're Going To:</h5>
+<%# byebug %>
+<%# if @user.events_where_admin %>
+
+    <% @user.events.each do |event| %>
+        <%# byebug %>
+        <%= link_to event.title, event_path(event) %> -
+        <% ed = event.date %>
+        <%= ed.strftime("%m/%d/%Y") %> -
+        <% et = event.time %>
+        <%= et.strftime("%I:%M %p") %>
+        <br>
+    <% end %>
+
+<%# end %>
 
 
 

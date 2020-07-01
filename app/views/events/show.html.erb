@@ -10,7 +10,9 @@
         <br>
         <%= @event.city %> <%= @event.state %>,  <%= @event.zip %>
         <br>
-        <%= @event.date.strftime("%B %e, %Y") %> - <%= @event.time %>
+        <%= @event.date.strftime("%B %e, %Y") %> - 
+        <% et = @event.time %>
+        <%= et.strftime("%I:%M %p") %>
         <br></br>
         Event Summary:
         <li><%= @event.about_content %></li>
@@ -18,24 +20,27 @@
 </div>
 
 <div>
-    Comments: <br>
+    RSVP's: <br>
+
         <% @event.users_events.each do |ue| %>
             <%# byebug %>
-        <%= link_to ue.user.name || ue.user.username, user_path(ue.user_id) %> said
+        <%= ue.user.name || ue.user.username %> said:
         <%= ue.comment %><br>
         <% end %>
 </div>  
 
 <br></br>
 <div>
-    Share your comments: 
+    Sign Up For Event with a Comment:
     <br></br>
     
-    <%= form_for @event.users_events.build do |f| %>
+    <%= form_for UsersEvent.new do |f| %>
+        <%= f.hidden_field :event_id, value: @event.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.label "Comment" %><br>
         <%= f.text_area :comment %><br>
         <br></br>
-        <%= f.submit "Submit Comment" %>
+        <%= f.submit "RSVP for event" %>
     <% end %> 
 </div>
 

@@ -1,5 +1,9 @@
 <div class="container">
 <br>
+<% if flash[:message] %>
+<p style="color:#FF0000";><%= flash[:message] %></p>
+<% end %>
+
 <%= link_to "Create New Event", new_event_path %>
 <br>
     <h1>Upcoming Events</h1>

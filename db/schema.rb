@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_06_26_171346) do
   create_table "users_events", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.boolean "admin"
+    t.boolean "admin", default: false
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

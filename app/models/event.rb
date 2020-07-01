@@ -20,7 +20,7 @@ class Event < ApplicationRecord
     # end
 
     def is_admin?(user)
-        self.user_events.where(admin: true).pluck(:user_id).include?(user.id)
+        self.users_events.where(admin: true).pluck(:user_id).include?(user.id)
     end 
         
 end

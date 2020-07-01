@@ -18,7 +18,10 @@ class User < ApplicationRecord
     end
 
     def events_where_admin
-        self.user_events.where(admin: true).pluck(:event_id).collect { |ei| ei.event }
+        #byebug
+        self.users_events.where(admin: true)
+        #self.users_events.where(admin: true).pluck(:event_id).collect { |ei| ei.event }
+        
         # user_events table and we are finding any row where user_id = is equal to this user.id(self)
         # and admin = true
         # taking all the event_id's out of those rows on the user_events table, iterate over those id's [bracket/array of id's]

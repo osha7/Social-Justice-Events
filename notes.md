@@ -8,9 +8,6 @@ User / (((Attendee)))
 
 
 
-
-
-
 Events
 
 -has_many :users, through: :user_events

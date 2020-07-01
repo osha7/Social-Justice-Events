@@ -4,7 +4,7 @@
 <% if @user.errors.any? %>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
-        <%= message %><br>
+        <p style="color:#FF0000";><%= message %></p>
     <% end %>
     </ul>
 <% end %>

@@ -22,12 +22,14 @@ class ApplicationController < ActionController::Base
 
     helper_method :authentication_required
 
-    def authorize
-        redirect_to '/login' if !@user 
+    def authorize(user)
+        #byebug
+        redirect_to login_path if user != current_user
+        # flash[:error] = "You don't have access to that page!"
+
     end
 
     helper_method :authorize
-
-       
+   
 
 end

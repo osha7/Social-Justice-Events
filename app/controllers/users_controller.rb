@@ -19,8 +19,7 @@ class UsersController < ApplicationController
     def show
         
         @user = User.find_by(id: params[:id])
-        authorize
-        #redirect_to '/login' if !@user 
+        authorize(@user)
         
     end
 

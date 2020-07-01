@@ -13,13 +13,15 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         if @event.save
             #byebug
-            @userevent = @event.user_events.build(user_id: current_user.id, admin: true)
+            @userevent = @event.users_events.build(user_id: current_user.id, admin: true)
+            @userevent.comment = "Of Course I'm going, I made the event!"
             @userevent.save
-            redirect_to events_path
+            redirect_to event_path(@event)
+            #byebug
+                
         else
             render :new
         end
-        
 
     end
 
@@ -34,6 +36,7 @@ class EventsController < ApplicationController
             render :edit
         else 
             redirect_to events_path
+            flash[:message] = "You must be Admin of Event to Edit"
         end 
         #byebug
         # if current_user.events_where_admin
@@ -44,22 +47,30 @@ class EventsController < ApplicationController
     
     def update
          # if @user.admin
-        if @event.update(event_params)
-            redirect_to event_path(@event)
+        if @event.is_admin?(current_user)
+            if @event.update(event_params)
+                redirect_to event_path(@event)
+            else
+                render :edit
+            end
         else
-            render :edit
-        end
-       
+            redirect_to events_path
+            flash[:message] = "You must be Admin of Event to Edit"
+        end 
     end
 
     def destroy
         # if @user.admin
-        if @event.destroy
-            redirect_to events_path
+        if @event.is_admin?(current_user)
+            if @event.destroy
+                redirect_to events_path
+            else
+                render :index
+            end
         else
-            render :index
-        end
-
+            redirect_to events_path
+            flash[:message] = "You must be Admin of Event to Edit"
+        end 
     end
 
     private
@@ -71,7 +82,5 @@ class EventsController < ApplicationController
     def set_event
         @event = Event.find_by(id: params[:id])
     end
-
     
-
 end

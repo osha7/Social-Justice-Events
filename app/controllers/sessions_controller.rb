@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
                 session[:user_id] = @user.id
                 redirect_to user_path(@user)
             else
+                #byebug
+                flash[:message] = "Invalid Credentials"
                 render :new
             end
         end
