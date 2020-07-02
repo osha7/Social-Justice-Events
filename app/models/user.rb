@@ -19,8 +19,8 @@ class User < ApplicationRecord
 
     def events_where_admin
         #byebug
-        self.users_events.where(admin: true)
-        #self.users_events.where(admin: true).pluck(:event_id).collect { |ei| ei.event }
+        #self.users_events.where(admin: true)
+        self.users_events.where(admin: true).pluck(:event_id).collect { |ei| ei.event }
         
         # user_events table and we are finding any row where user_id = is equal to this user.id(self)
         # and admin = true
@@ -28,4 +28,14 @@ class User < ApplicationRecord
         # creating an array of event instances from those id's
     end
 
+    # def signed_up_for_event(users_current_event)
+    #     #byebug
+    #     self.id == users_current_event.user_id
+    # end
+
+
+
 end
+
+
+# @user.users_events.where(admin: true)

@@ -28,21 +28,27 @@
         <%= ue.comment %><br>
         <% end %>
 </div>  
-
-<br></br>
-<div>
-    Sign Up For Event with a Comment:
+<%# byebug %>
+<%# if current_user.signed_up_for_event %>
     <br></br>
-    
-    <%= form_for UsersEvent.new do |f| %>
-        <%= f.hidden_field :event_id, value: @event.id %>
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.label "Comment" %><br>
-        <%= f.text_area :comment %><br>
+    <div>
+    <% if flash[:notice] %>
+    <p style="color:#FF0000";><%= flash[:notice] %></p>
+    <% end %>
+
+        Sign Up For Event with a Comment:
         <br></br>
-        <%= f.submit "RSVP for event" %>
-    <% end %> 
-</div>
+        
+        <%= form_for UsersEvent.new, local: true do |f| %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.label "Comment" %><br>
+            <%= f.text_area :comment %><br>
+            <br></br>
+            <%= f.submit "RSVP for event" %>
+        <% end %> 
+    </div>
+<%# end %>
 
 <br></br>
 <%= link_to "Edit Event", edit_event_path %>

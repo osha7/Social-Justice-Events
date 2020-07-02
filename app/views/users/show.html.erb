@@ -12,8 +12,6 @@ oooooohhhhhh we made it here!!!!
 
 <h5>Events You're Going To:</h5>
 <%# byebug %>
-<%# if @user.events_where_admin %>
-
     <% @user.events.each do |event| %>
         <%# byebug %>
         <%= link_to event.title, event_path(event) %> -
@@ -24,7 +22,21 @@ oooooohhhhhh we made it here!!!!
         <br>
     <% end %>
 
-<%# end %>
+<br></br>
+
+<h5>Your Events as Admin:</h5>
+    <% if @user.users_events.where(admin: true) %>
+        <% @user.users_events.where(admin: true).each do |event| %>
+            <%# byebug %>
+            <%= link_to event.id, event_path(event) %> -
+            <%# ed = event.date %>
+            <%#= ed.strftime("%m/%d/%Y") %> -
+            <%# et = event.time %>
+            <%#= et.strftime("%I:%M %p") %>
+            <br>        
+        <% end %>
+    <% end %>
+
 
 
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :authentication_required, only: [:show, :edit, :destroy]
-
+                # is this a ^callback^ ?
     def new
         @user = User.new
     end

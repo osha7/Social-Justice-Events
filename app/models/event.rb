@@ -22,5 +22,13 @@ class Event < ApplicationRecord
     def is_admin?(user)
         self.users_events.where(admin: true).pluck(:user_id).include?(user.id)
     end 
+
+    # def signed_up_for_event
+    #     #     #byebug
+    #         user_id = @event.users_events.each { |eue| eue.user_id }
+    #         if user_id == current_user.id
+    #             signed_up_for_event
+    #         end
+    # end
         
 end

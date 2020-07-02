@@ -28,6 +28,9 @@ Scope method
 6.
 Categories - Separate Model (?)
 
+7.
+Don't show past events
+ scope :past, -> { where("Date < ?", Date.today).order('Date DESC') }
 
 
 

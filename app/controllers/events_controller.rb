@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
-    
+            # is this a ^callback^ ?
     def index
         @events = Event.all
     end
