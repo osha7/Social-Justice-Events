@@ -1,19 +1,42 @@
 <div class="container">
-<br>
-<% if flash[:message] %>
-<p style="color:#FF0000";><%= flash[:message] %></p>
-<% end %>
+    <br>
+    <%if @user %>
+        <%#= @user.name || @user.username %> 
+        <h1>RSVP'd</h1>
+        <h3>Upcoming Events</h3><br>
+        
+    <% else %>
 
-<%= link_to "Create New Event", new_event_path %>
-<br>
-    <h1>Upcoming Events</h1>
+        <div>
+            <br>
+            <% if flash[:message] %>
+            <p style="color:#FF0000";><%= flash[:message] %></p>
+            <% end %>
+        </div>
 
-    <% @events.each do |event| %>
-            <%= link_to event.title, event_path(event) %><br>
+        <div>
+            <%= link_to "Create New Event", new_event_path %>
+            <br>
+                <h1>Upcoming Events</h1>
+        </div>
+
     <% end %>
 
+        <div>
+            <% @events.each do |event| %>
+                <% if @user %>
+                    <%= link_to event.title, user_event_path(@user, event) %> -
+                <% else %>
+                    <%= link_to event.title, event_path(event) %> -
+                <% end %>
+                    <% ed = event.date %>
+                <%= ed.strftime("%m/%d/%Y") %> -
+                    <%= event.category %>
+                    <br>
+            <% end %>
+        </div>
+    
 
-  
 </div>
 <br></br>
 <br></br>

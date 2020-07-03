@@ -2,10 +2,20 @@ class EventsController < ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
             # is this a ^callback^ ?
     def index
-        @events = Event.future_date
+        if params[:user_id]
+            @user = User.find_by(params[:id])
+            #byebug
+            # @category = Category.find(params[:id]) @posts = @category.posts
+            @events = @user.events.future_date
+        else
+            @events = Event.future_date
+        end
     end
 
     def new
+        if params[:user_id]
+            @user = User.find_by(params[:id])
+        end
         @event = Event.new
     end
     
@@ -16,19 +26,29 @@ class EventsController < ApplicationController
             @userevent = @event.users_events.build(user_id: current_user.id, admin: true)
             @userevent.comment = "Of Course I'm going, I made the event!"
             @userevent.save
-            redirect_to event_path(@event)
+
+            
+            # if params[:user_id]
+            #     @user = User.find_by(params[:id])
+            #     redirect_to user_events_path(@user)
+            # else
+            #     redirect_to event_path(@event)
+            # end
             #byebug
                 
         else
             render :new
         end
 
+        # if @alien_group.save
+        #     redirect_to params[:planet_id] ? planet_alien_group_path(params[:planet_id], @alien_group) : @alien_group
+        #   else
+        #     render :new
+        #   end
+
     end
 
     def show
-    #    @users_event = @event.users_events.build 
-    #    @users_event.save
-    #    @users_event.user = current_user
     end
 
     def edit
@@ -38,11 +58,6 @@ class EventsController < ApplicationController
             redirect_to events_path
             flash[:message] = "You must be Admin of Event to Edit"
         end 
-        #byebug
-        # if current_user.events_where_admin
-        # else
-        #     render :index
-        # end
     end
     
     def update
