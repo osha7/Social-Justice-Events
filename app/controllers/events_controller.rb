@@ -30,8 +30,6 @@ class EventsController < ApplicationController
             @userevent.save
             #byebug
             redirect_to event_path(@event)
-            
-                
         else
             render :new
         end
