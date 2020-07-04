@@ -2,11 +2,13 @@ module EventsHelper
 
     def sj_categories_placeholder
         [
-            ['LGBTQ', 'LGBTQ'],
+            ['LGBTQ Rights', 'LGBTQ Rights'],
             ['Black Lives Matter', 'Black Lives Matter'],
             ['Me Too', 'Me Too'],
-            ['President Sux', 'President Sux'],
-            ['Imprisoning Ppl @ Border', 'Imprisoning Ppl @ Border']
+            ['Impeach President', 'Impeach President'],
+            ['Refugee Rights', 'Refugee Rights'],
+            ['Pride', 'Pride'],
+            ['Families Belong Together', 'Families Belong Together']
         ]
     end
 

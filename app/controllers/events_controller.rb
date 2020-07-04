@@ -26,14 +26,14 @@ class EventsController < ApplicationController
         if @event.save
             #byebug
             @userevent = @event.users_events.build(user_id: current_user.id, admin: true)
-            @userevent.comment = "Of Course I'm going, I made the event!"
+            # @userevent.comment = "Of Course I'm going, I made the event!"
+            @userevent.comment = "I'm this events' organizer!"
             @userevent.save
             #byebug
             redirect_to event_path(@event)
         else
             render :new
         end
-
     end
 
     def show
