@@ -4,13 +4,13 @@ class EventsController < ApplicationController
     def index
         #byebug
         if params[:user_id]
-            # @user = User.find_by(params[:id]) found this on StackOverflow - Doesn't work
+            # @user = User.find_by(params[:id]) found this on StackOverflow - Doesn't work - only pulls first instance of user
+            # ^^ @category = Category.find(params[:id]) / @posts = @category.posts ^^
             @user = User.find_by(:id => current_user)
             #byebug
-            # @category = Category.find(params[:id]) @posts = @category.posts
-            @events = @user.events.future_date
+            @events = @user.events.order_by_date.future_date
         else
-            @events = Event.future_date
+            @events = Event.order_by_date.future_date
         end
     end
 

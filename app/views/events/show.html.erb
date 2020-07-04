@@ -3,17 +3,18 @@
 <div class="container">
 
     <h1><%= @event.title %></h1>
-    <br>
-        <%= @event.category %>
-        <br>
-        <%= @event.address %>
-        <br>
-        <%= @event.city %> <%= @event.state %>,  <%= @event.zip %>
-        <br>
+        Event Focus: <%= @event.category %>
+        <br></br>
         <%= @event.date.strftime("%B %e, %Y") %> - 
         <% et = @event.time %>
         <%= et.strftime("%I:%M %p") %>
         <br></br>
+        Address: <br>
+        <%= @event.address %>
+        <br>
+        <%= @event.city %> <%= @event.state %>,  <%= @event.zip %>
+        <br></br>
+        
         Event Summary:
         <li><%= @event.about_content %></li>
         <br>

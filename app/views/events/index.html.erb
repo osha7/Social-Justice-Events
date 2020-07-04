@@ -4,7 +4,7 @@
         <%#= @user.name || @user.username %> 
         <h1>RSVP'd</h1>
         <h3>Upcoming Events</h3><br>
-        
+
     <% else %>
 
         <div>
@@ -29,16 +29,16 @@
                 <% else %>
                     <%= link_to event.title, event_path(event) %> -
                 <% end %>
-                    <% ed = event.date %>
+                <% ed = event.date %>
                 <%= ed.strftime("%m/%d/%Y") %> -
-                    <%= event.category %>
-                    <br>
+                <%= event.category %>
+                <br>
             <% end %>
         </div>
-    
 
 </div>
 <br></br>
 <br></br>
+
 <p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
 <%= link_to "Log Out", logout_path %></p><br> 

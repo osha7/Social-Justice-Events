@@ -19,7 +19,7 @@ to have users 'join' events
 how do I use comments attribute from join table of user_events
     -to make comments section on each event show page
 
-5.
+5. INDEX, SHOW & NEW (but new can only redirect to unnested #show route?)
 Nested Routes
 A - index or show
 B - new
@@ -36,7 +36,9 @@ Categories - Separate Model (?)
 8.
 Delete your own rsvp's if needed
 
-9.
+9. Event Index Organized by Date (scope method)
+
+10. /\//\//\//\/\ Seed File /\/\\/\\/\\/\
 
 
 

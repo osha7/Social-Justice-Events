@@ -39,7 +39,7 @@ Event.create({
 
 Event.create({
     :title => "Event 3",
-    :category => "Impeach President",
+    :category => "Impeach The President",
     :address => "1437 Bannock St",
     :city => "Denver",
     :state => "CO",

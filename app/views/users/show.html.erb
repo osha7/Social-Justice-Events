@@ -1,6 +1,5 @@
 <br></br>
-show page<br>
-oooooohhhhhh we made it here!!!!
+
 
 <h2> Hello <%= @user.name %> </h2> 
 
@@ -9,9 +8,9 @@ oooooohhhhhh we made it here!!!!
 <%= link_to "Create New Event", new_user_event_path(@user) %>
 
 <br></br>
-<%# raise.params %>
+<%# raise.params %> <%# %>
 - -<br>
-<h5>Click <%= link_to "Here", user_events_path(@user) %> To See Events You're Going To</h5>
+<h5>Click <%= link_to "Here", user_events_path(@user) %> To See ALL The Events You're Going To!</h5>
                         <%# byebug %>
                             <%# @user.events.each do |event| %>
                                 <%# byebug %>
@@ -21,19 +20,21 @@ oooooohhhhhh we made it here!!!!
                                 <%# et = event.time %>
                                 <%#= et.strftime("%I:%M %p") %>
                                 <br>
-                            <%# end %>
+                            <%# end %> <%# %>
 
 <br>
 <h5>Events You Have Created:</h5>
-<%# byebug %>
+<%# byebug %><%# %>
     <% if @user.users_events.where(admin: true) %>
-        <% @user.users_events.where(admin: true).each do |event| %>
-            <%# byebug %>
-            <%= link_to Event.all.find(event.event_id).title, event_path(event.event_id) %> -
+       <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
+        <% @user.users_events.where(admin: true).reverse.each do |event| %>
+            <% if @user %>
+                <%= link_to Event.all.find(event.event_id).title, user_event_path(@user, event) %> -
+            <% else %>
+                <%= link_to Event.all.find(event.event_id).title, event_path(event.event_id) %> -
+            <% end %>
             <% ed = Event.all.find(event.event_id).date %>
             <%= ed.strftime("%m/%d/%Y") %>
-            <%# et = Event.all.find(event.event_id).time %>
-            <%#= et.strftime("%I:%M %p") %>
             <br>        
         <% end %>
     <% end %>

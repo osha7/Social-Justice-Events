@@ -5,7 +5,7 @@ module EventsHelper
             ['LGBTQ Rights', 'LGBTQ Rights'],
             ['Black Lives Matter', 'Black Lives Matter'],
             ['Me Too', 'Me Too'],
-            ['Impeach President', 'Impeach President'],
+            ['Impeach The President', 'Impeach The President'],
             ['Refugee Rights', 'Refugee Rights'],
             ['Pride', 'Pride'],
             ['Families Belong Together', 'Families Belong Together']

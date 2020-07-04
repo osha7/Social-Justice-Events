@@ -16,7 +16,8 @@ class Event < ApplicationRecord
     scope :future_date, lambda { where("date > ?", Date.today) }
                 # ARel query?
                 # scope allows you to specify an ARel query that can be used as a method call to the model (or association objects)
-                # equivalent to:
+                # equivalent to: 
+    scope :order_by_date, -> {order("date")}
     
     # def date_must_be_after_today       #(((this method went into DateValidator)))
     #     if date <= Time.now
