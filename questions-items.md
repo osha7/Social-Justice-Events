@@ -26,7 +26,7 @@ B - new
 
 6. YESSSSSSSSSSSS
 Scope method
-    5b.  ALL SET!
+    6b.  ALL SET!
         Don't show past events
         scope :past, -> { where("Date < ?", Date.today).order('Date DESC') }
 
@@ -36,6 +36,7 @@ Categories - Separate Model (?)
 8.
 Delete your own rsvp's if needed
 
+9.
 
 
 

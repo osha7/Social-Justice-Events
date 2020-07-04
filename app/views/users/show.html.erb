@@ -13,15 +13,15 @@ oooooohhhhhh we made it here!!!!
 - -<br>
 <h5>Click <%= link_to "Here", user_events_path(@user) %> To See Events You're Going To</h5>
                         <%# byebug %>
-                            <%# @user.events.each do |event| %>
+                            <% @user.events.each do |event| %>
                                 <%# byebug %>
-                                <%#= link_to event.title, event_path(event) %> -
-                                <%# ed = event.date %>
-                                <%#= ed.strftime("%m/%d/%Y") %> -
-                                <%# et = event.time %>
-                                <%#= et.strftime("%I:%M %p") %>
+                                <%= link_to event.title, event_path(event) %> -
+                                <% ed = event.date %>
+                                <%= ed.strftime("%m/%d/%Y") %> -
+                                <% et = event.time %>
+                                <%= et.strftime("%I:%M %p") %>
                                 <br>
-                            <%# end %>
+                            <% end %>
 
 <br>
 <h5>Events You Have Created:</h5>

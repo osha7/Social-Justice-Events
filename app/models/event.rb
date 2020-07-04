@@ -3,7 +3,7 @@ class Event < ApplicationRecord
 
     include ActiveModel::Validations
 
-    has_many :users_events
+    has_many :users_events, dependent: :destroy
     has_many :users, through: :users_events
                 # @event.users
 

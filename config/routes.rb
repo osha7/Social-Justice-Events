@@ -15,7 +15,7 @@ get '/signup' => 'users#new'
         
 resources :users, only: [:new, :create, :show] do
   #nested routes
-  resources :events
+  resources :events, only: [:index, :show, :new, :create]
 end
 
 
