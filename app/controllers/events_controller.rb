@@ -16,7 +16,16 @@ class EventsController < ApplicationController
 
 
     def search
-        @events = Event.order_by_date.where("(title || about_content || category) LIKE ?", "%" + params[:search] + "%")
+        # @events = Event.order_by_date.where("(title || about_content || category) LIKE ?", "%" + params[:search] + "%")
+        # ^case sensitive^ or (below) can only search one attr/field
+        # @events = Event.order_by_date.where(Event.arel_table[:title].matches("%#{params[:search]}%")) #https://www.scimedsolutions.com/blog/arel-part-i-case-insensitive-searches-with-partial-matching
+      
+        @events = Event.order_by_date.where(
+            %i(title category about_content)
+            .map { |field| Event.arel_table[field].matches("%#{params[:search]}%")}
+            .inject(:or)
+        )     #https://www.thetopsites.net/article/53226084.shtml
+       
     end
 
 

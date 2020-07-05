@@ -21,53 +21,59 @@
 </div>
 
 <div>
-    RSVP's: <br>
 
+<u><%= @event.users_events.count %> RSVP's: </u><br>
         <% @event.users_events.each do |ue| %>
             <%# byebug %>
         <%= ue.user.name || ue.user.username %> said:
         <%= ue.comment %><br>
         <% end %>
 </div>  
-<%# byebug %>
-<%# if current_user.signed_up_for_event %>
-    <br></br>
-    <div>
+<br></br>
+<div>
     <% if flash[:notice] %>
     <p style="color:#FF0000";><%= flash[:notice] %></p>
     <% end %>
-
-        Sign Up For Event with a Comment:
-        <br></br>
+</div>
+    
+<div>
+    <p>Sign Up For Event with a Comment:</p>
         
         <%= form_for UsersEvent.new, local: true do |f| %>
             <%= f.hidden_field :event_id, value: @event.id %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.label "Comment" %><br>
             <%= f.text_area :comment %><br>
-            <br></br>
+            <br>
             <%= f.submit "RSVP for event" %>
         <% end %> 
-    </div>
-<%# end %>
+</div>
+
 <br>
-<p>Can't make it? Please let us know and delete your RSVP</p>
-    <%#= form_with url: '/users_events/:id' , method: "delete" do %>
-        <%# byebug %>
-        <%#= submit_tag "Delete RSVP" %>
-    <%# end %>
-    <%= button_to "Delete RSVP", users_event_path(@event), method: :delete %>
+<div>
+    <p>Can't make it? Please let us know and delete your RSVP</p>
+        <%#= form_with url: '/users_events/:id' , method: "delete" do %>
+            <%# byebug %>
+            <%#= submit_tag "Delete RSVP" %>
+        <%# end %>
+
+        <%= button_to "Delete RSVP", users_event_path(@event), method: :delete %>
+</div>
 
 <br></br>
-<%= link_to "Edit Event", edit_event_path %>
-<br>
-<%= link_to "All Events", events_path %>
+<div>
+    <%= link_to "Edit Event", edit_event_path %>
+    <br>
+    <%= link_to "All Events", events_path %>
+</div>
 
 <br></br>
 <br></br>
-<p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
-<%= link_to "Log Out", logout_path %></p><br> 
 
+<div>
+    <p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
+    <%= link_to "Log Out", logout_path %></p><br> 
+</div>
 
 
 
