@@ -1,0 +1,22 @@
+<div class="container">
+<br>
+    <div>
+        <h1>Search Results</h1>
+    </div>
+<br>
+
+    <div>
+        <% @events.each do |event| %>
+            <%= link_to event.title, event_path(event) %> -
+            <% ed = event.date %>
+            <%= ed.strftime("%m/%d/%Y") %><br>
+
+        <% end %>
+    </div>
+    
+    <br></br>
+    <br></br>
+    <p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
+    <%= link_to "Log Out", logout_path %></p><br> 
+
+</div>

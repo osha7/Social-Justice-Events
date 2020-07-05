@@ -1,9 +1,12 @@
 <div class="container">
     <br>
+
     <%if @user %>
         <%#= @user.name || @user.username %> 
         <h1>RSVP'd</h1>
         <h3>Upcoming Events</h3><br>
+        <%= render 'searchform' %>
+        <br>
 
     <% else %>
 
@@ -18,8 +21,10 @@
             <%= link_to "Create New Event", new_event_path %>
             <br>
                 <h1>Upcoming Events</h1>
+                <%= render 'searchform' %>
+            <br>
         </div>
-
+        
     <% end %>
 
         <div>

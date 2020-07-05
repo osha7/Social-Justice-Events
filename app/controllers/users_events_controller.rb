@@ -16,11 +16,24 @@ class UsersEventsController < ApplicationController
         redirect_to event_path(users_events.event_id)
       end
   end
+
+  def destroy
+    # #byebug
+    # @users_event = UsersEvent.find_by(id: params[:id])
+    # #byebug
+    #     if @users_event.destroy
+    #         redirect_to events_path
+    #     else
+    #         render :show
+    #     end
+    
+  end
+
     
   private
     
   def usersevent_params
-    params.require(:users_event).permit(:comment, :event_id, :user_id)
+    params.require(:users_event).permit(:id, :comment, :event_id, :user_id)
   end 
 
 end

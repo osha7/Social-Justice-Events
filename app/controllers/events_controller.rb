@@ -14,6 +14,12 @@ class EventsController < ApplicationController
         end
     end
 
+
+    def search
+        @events = Event.order_by_date.where("(title || about_content || category) LIKE ?", "%" + params[:search] + "%")
+    end
+
+
     def new
         if params[:user_id]
             @user = User.find_by(:id => current_user)
@@ -39,6 +45,7 @@ class EventsController < ApplicationController
     def show
     end
 
+
     def edit
         if @event.is_admin?(current_user)
             render :edit
@@ -63,7 +70,7 @@ class EventsController < ApplicationController
     end
 
     def destroy
-        # if @user.admin
+        # if @user.admin 
         if @event.is_admin?(current_user)
             if @event.destroy
                 redirect_to events_path
