@@ -23,7 +23,9 @@ get '/signup' => 'users#new'
 resources :events
 #resources :categories, except: [:destroy]
 # post '/users_events', to: 'users_events#create', as: 'new_usersevent'
+
 resources :users_events, only: [:create, :destroy]
+get 'rsvps', to: "users_events#index"
 
 get 'search', to: "events#search"
 

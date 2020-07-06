@@ -30,9 +30,7 @@ class EventsController < ApplicationController
 
 
     def new
-        if params[:user_id]
-            @user = User.find_by(:id => current_user)
-        end
+
         @event = Event.new
     end
     

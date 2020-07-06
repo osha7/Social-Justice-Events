@@ -1,4 +1,8 @@
 class UsersEventsController < ApplicationController
+  
+  def index
+    @users_events = UsersEvent.all 
+  end
 
   def create
     # #byebug
@@ -18,14 +22,20 @@ class UsersEventsController < ApplicationController
   end
 
   def destroy
-    # #byebug
-    # @users_event = UsersEvent.find_by(id: params[:id])
-    # #byebug
-    #     if @users_event.destroy
-    #         redirect_to events_path
-    #     else
-    #         render :show
-    #     end
+  #byebug
+    @users_event = UsersEvent.find_by(id: params[:id])
+    #byebug
+    if @users_event.admin == true
+      flash[:message] = "If you are Admin of an Event: You can't delete your RSVP."
+      redirect_to events_path
+    elsif @users_event.user_id == current_user.id
+      @users_event.destroy
+      flash[:message] = "Your RSVP has been cancelled"
+      redirect_to rsvps_path
+    else
+      flash[:message] = "We weren't able to cancel your RSVP"
+      render :index
+    end
     
   end
 

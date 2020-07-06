@@ -26,7 +26,10 @@
         <% @event.users_events.each do |ue| %>
             <%# byebug %>
         <%= ue.user.name || ue.user.username %> said:
-        <%= ue.comment %><br>
+        <%= ue.comment %>
+            <% if (ue.user_id == current_user.id)  %>
+                <%= button_to "Delete RSVP", users_event_path(ue), method: :delete %>
+            <% end %><br>
         <% end %>
 </div>  
 <br></br>
@@ -57,7 +60,7 @@
             <%#= submit_tag "Delete RSVP" %>
         <%# end %>
 
-        <%= button_to "Delete RSVP", users_event_path(@event), method: :delete %>
+        <%#= button_to "Delete RSVP", users_event_path(@event), method: :delete %>
 </div>
 
 <br></br>
