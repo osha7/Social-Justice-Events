@@ -1,6 +1,7 @@
 
 # by running this file YOU WILL LOSE any previously created Users, Events, & UsersEvents
 
+# ONLY rake db:migrate if there are NO previously created/deleted instances of any models - all instances below are dependant upon each-other
 # ONLY RUN THIS FILE -  MAKING SURE LINES 3-5 are present and run first
 # UsersEvent creations are dependent on specific users and events
 
