@@ -1,24 +1,26 @@
-<div>
-<br>
-
-
-    <h1>Log In</h1>
-    <p>Need to join the movement? <%= link_to "Sign Up", '/signup' %></p>
+<body>
+    <div>
     <br>
-    
 
-    <% if flash[:message] %>
-    <p style="color:#FF0000";><%= flash[:message] %></p>
-    <% end %>
 
-    <%= form_with url:'/sessions', local: true, method: :post do |f| %>
-
-        <%= f.text_field :username, :placeholder => :username %><br>
+        <h1>Log In</h1>
+        <p>Need to join the movement? <%= link_to "Sign Up", '/signup' %></p>
         <br>
-        <%= f.password_field :password, :placeholder => :password %>
-        <br></br>
-        <%= submit_tag("Log In", :style => "width: 100px; background-color: #c49102;") %>
+        
 
-    <% end %>
+        <% if flash[:message] %>
+        <p style="color:#FF0000";><%= flash[:message] %></p>
+        <% end %>
 
-</div>
+        <%= form_with url:'/sessions', local: true, method: :post do |f| %>
+
+            <%= f.text_field :username, :placeholder => :username %><br>
+            <br>
+            <%= f.password_field :password, :placeholder => :password %>
+            <br></br>
+            <%= submit_tag("Log In", :style => "width: 100px; background-color: #c49102;") %>
+
+        <% end %>
+
+    </div>
+</body>

@@ -15,17 +15,12 @@
  */
 
 @import "bootstrap";
-
-@media screen {
-
-    body {
-        background-color: #233342  !important;
-        color: #c49102    !important;
-        text-align: center;
-        font-family: roboto !important;
+html {
+    -webkit-background-size: cover  !important;
+    -moz-background-size: cover  !important;
+    -o-background-size: cover  !important;
+    background-size: cover  !important;
     }
-
-}
 
 input, input[placeholder] {
     text-align: center  !important;
