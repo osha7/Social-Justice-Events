@@ -1,4 +1,4 @@
-<div class="container">
+<div>
 <br>
 
 
@@ -13,13 +13,11 @@
 
     <%= form_with url:'/sessions', local: true, method: :post do |f| %>
 
-        <%= f.label :username %>
-        <%= f.text_field :username %>
+        <%= f.text_field :username, :placeholder => :username %><br>
         <br>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, :placeholder => :password %>
         <br></br>
-        <%= f.submit "Log In" %>
+        <%= submit_tag("Log In", :style => "width: 100px; background-color: #DA674A;") %>
 
     <% end %>
 

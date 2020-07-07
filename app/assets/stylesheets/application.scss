@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap";
+
+@media screen {
+
+    body {
+        background-color: #2B4D59  !important;
+        color: #39998E    !important;
+        text-align: center;
+        font-family: roboto !important;
+    }
+
+}
+
+input, input[placeholder] {
+    text-align: center  !important;
+    color: #2B4D59  !important;
+}

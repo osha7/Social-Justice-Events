@@ -29,4 +29,6 @@ get 'rsvps', to: "users_events#index"
 
 get 'search', to: "events#search"
 
+get 'users', to: "users#users"
+
 end

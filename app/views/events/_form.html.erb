@@ -1,5 +1,8 @@
 <br>
-<div class="container">
+<div>
+<br></br>
+<br></br>
+<br></br>
 <% if @event.errors.any? %>
     <ul>
     <% @event.errors.full_messages.each do |message| %>
@@ -13,16 +16,13 @@
         
         <%= f.label "Title:" %><br>
         <%= f.text_field :title , "size" => 30 %>
-        <br>
-
+        <br></br>
         <%= f.label "Category:" %><br>
         <%= f.select :category, options_for_select( sj_categories, " "), include_blank: "Select One" %>
-        <br>
-
+        <br></br>
         <%= f.label "Address:" %><br>
         <%= f.text_field :address , "size" => 30 %>
         <br>
-
         <%= f.label :city%>
         <%= f.text_field :city %>
         <%= f.label :state%>
@@ -41,6 +41,6 @@
         <%= f.text_area :about_content, cols: "50", rows: "10" %>
         <br></br>
 
-        <%= f.submit %>
+        <%= f.submit(:style => "width: 150px; background-color: #DA674A;") %>
 
         <% end %>

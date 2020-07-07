@@ -11,6 +11,7 @@ module EventsHelper
             ['Human Rights', 'Human Rights'],
             ['Citizenship', 'Citizenship'],
             ['Refugee Rights', 'Refugee Rights'],
+            ['DACA', 'DACA'],
             ['Migrant Worker Rights', 'Migrant Worker Rights'],
             ['Labor Exploitation', 'Labor Exploitation'],
             ['Injustice At The Border', 'Injustice At The Border'],
@@ -36,6 +37,7 @@ module EventsHelper
             ['Prison Reform', 'Prison Reform'],
             ['Systemic Oppression', 'Systemic Oppression'],
             ['Mental Health', 'Mental Health'],
+            ['March For Science', 'March For Science'],
             ['Impeach The President', 'Impeach The President']
         ]
     end
