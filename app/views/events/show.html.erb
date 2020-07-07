@@ -2,7 +2,7 @@
 
 <div>
 
-    <h1><%= @event.title %></h1>
+    <h1 style="color:#FFFFFF";><%= @event.title %></h1>
         Event Focus: <%= @event.category %>
         <br></br>
         <%= @event.date.strftime("%B %e, %Y") %> - 
@@ -29,7 +29,7 @@
         <%= ue.comment %><br>
             <% if ue.admin == false %> 
                 <% if (ue.user_id == current_user.id)  %>
-                    <%= button_to "Delete RSVP", users_event_path(ue), method: :delete, :style => "width: 100px; background-color: #DA674A;" %>
+                    <%= button_to "Delete RSVP", users_event_path(ue), method: :delete, :style => "width: 100px; background-color: #ffffff;" %>
                 <% end %><br>
             <% end %>
         <% end %>
@@ -42,7 +42,7 @@
 </div>
     
 <div>
-    <p>Sign Up For Event with a Comment:</p>
+    <h5><u>Sign Up For Event with a Comment:</u></h5>
         
         <%= form_for UsersEvent.new, local: true do |f| %>
             <%= f.hidden_field :event_id, value: @event.id %>
@@ -56,13 +56,8 @@
 
 <br>
 <div>
-    <p>Can't make it? Please let us know and delete your RSVP</p>
-        <%#= form_with url: '/users_events/:id' , method: "delete" do %>
-            <%# byebug %>
-            <%#= submit_tag "Delete RSVP" %>
-        <%# end %>
-
-        <%#= button_to "Delete RSVP", users_event_path(@event), method: :delete %>
+    <p style="color:#FFFFFF";>Can't make it? Please let us know and delete your RSVP</p>
+        
 </div>
 
 <br></br>

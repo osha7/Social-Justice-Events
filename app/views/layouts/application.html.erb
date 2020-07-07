@@ -30,13 +30,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" style="color: #2B4D59;" href="#">HOME<span class="sr-only">(current)</span></a>
+        <a class="nav-link" style="color: #2B4D59;" href="/">HOME<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" style="color: #2B4D59;" href="#">YOUR DASHBOARD</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" style="color: #2B4D59;" href="#">ALL EVENTS</a>
+        <a class="nav-link" style="color: #2B4D59;" href="">ALL EVENTS</a>
       </li>
     </ul>
   </div>
@@ -64,7 +64,7 @@
     <p> You're logged in as: <%= link_to current_user.username, user_path(current_user) %><br>
     <%= link_to "Log Out", logout_path %></p><br> 
   <% end %>
-  
+
     <p>©2020 ChangeMakers</p>
     </footer>
     </center>
