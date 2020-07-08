@@ -1,17 +1,17 @@
-<br>
+
 <div>
-<br></br>
-<br></br>
-<br></br>
-<% if @event.errors.any? %>
-    <ul>
-    <% @event.errors.full_messages.each do |message| %>
-        <p style="color:#FF0000";><%= message %></p>
+
+
+<div>
+    <% if @event.errors.any? %>
+        <ul>
+        <% @event.errors.full_messages.each do |message| %>
+            <p style="color:#FF0000";><%= message %></p>
+        <% end %>
+        </ul>
     <% end %>
-    </ul>
-<% end %>
-
-
+</div>
+<div>
     <%= form_for @event do |f| %>
         
         <%= f.label "Title:" %><br>
@@ -41,6 +41,7 @@
         <%= f.text_area :about_content, cols: "50", rows: "10" %>
         <br></br>
 
-        <%= f.submit(:style => "width: 150px; background-color: #DA674A;") %>
+        <%= f.submit(:style => "width: 150px; background-color: #c49102;") %>
 
-        <% end %>
+    <% end %>
+</div>

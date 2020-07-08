@@ -12,7 +12,7 @@
 <div>
     <div>
         <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF"; > Hello <%= @user.name %> </h1> 
-        <%= link_to "See All Events", events_path %><br>
+        <%#= link_to "See All Events", events_path %>
         <%= link_to "Create New Event", new_user_event_path(@user) %>
     <div>
 
@@ -34,10 +34,12 @@
 
     <div>
         <br>
-        <h5>Events You Have Created:</h5>
+        <h5><u>Events You Have Created:</u></h5>
         <%# byebug %><%# %>
-            <% if @user.users_events.where(admin: true) %>
-            <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
+            <% if @user.users_events.where(admin: true).empty? %>
+                <p style="color: #ffffff;"><%= "You haven't created any events yet!" %><p>
+            <% else @user.users_events.where(admin: true) %>
+                                        <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
                 <% @user.users_events.where(admin: true).reverse.each do |event| %>
                     <% if @user %>
                         <%= link_to Event.all.find(event.event_id).title, user_event_path(@user, event) %> -
