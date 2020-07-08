@@ -19,10 +19,32 @@
         <li><%= @event.about_content %></li>
         <br>
 </div>
-
+<div>
+    <%= link_to "Edit Event", edit_event_path %>
+</div>
+<br></br>
+<div>
+    <% if flash[:notice] %>
+    <p style="color:#FF0000";><%= flash[:notice] %></p>
+    <% end %>
+</div>
+    
+<div>
+    <h5 style="color:#FFFFFF";><u>Sign Up For Event with a Comment:</u></h5>
+        
+        <%= form_for UsersEvent.new, local: true do |f| %>
+            <%= f.hidden_field :event_id, value: @event.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.label "Comment" %><br>
+            <%= f.text_area :comment %><br>
+            <br>
+            <%= f.submit("RSVP for event", :style => "width: 150px; background-color: #c49102") %>
+        <% end %> 
+</div>
+<br></br>
 <div>
 
-<u><%= @event.users_events.count %> RSVP's: </u><br>
+    <u><%= @event.users_events.count %> RSVP's: </u><br>
         <% @event.users_events.each do |ue| %>
             <%# byebug %>
         <%= ue.user.name || ue.user.username %> said:
@@ -34,40 +56,9 @@
             <% end %>
         <% end %>
 </div>  
-<br></br>
-<div>
-    <% if flash[:notice] %>
-    <p style="color:#FF0000";><%= flash[:notice] %></p>
-    <% end %>
-</div>
-    
-<div>
-    <h5><u>Sign Up For Event with a Comment:</u></h5>
-        
-        <%= form_for UsersEvent.new, local: true do |f| %>
-            <%= f.hidden_field :event_id, value: @event.id %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.label "Comment" %><br>
-            <%= f.text_area :comment %><br>
-            <br>
-            <%= f.submit("RSVP for event", :style => "width: 150px; background-color: #c49102") %>
-        <% end %> 
-</div>
 
 <br>
 <div>
     <p style="color:#FFFFFF";>Can't make it? Please let us know and delete your RSVP</p>
-        
 </div>
-
-<br></br>
-<div>
-    <%= link_to "Edit Event", edit_event_path %>
-    <br>
-    <%= link_to "All Events", events_path %>
-</div>
-
-<br></br>
-<br></br>
-
 

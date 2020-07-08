@@ -1,26 +1,35 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="users.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+</head>
+
 <body>
     <div>
-    <br>
-
-
-        <h1>Log In</h1>
-        <p>Need to join the movement? <%= link_to "Sign Up", '/signup' %></p>
         <br>
-        
-
-        <% if flash[:message] %>
-        <p style="color:#FF0000";><%= flash[:message] %></p>
-        <% end %>
-
-        <%= form_with url:'/sessions', local: true, method: :post do |f| %>
-
-            <%= f.text_field :username, :placeholder => :username %><br>
+        <div>
+            <h1 class="animate__animated animate__fadeIn">Log In</h1>
+            <p>Need to join the movement? <%= link_to "Sign Up", '/signup' %></p>
             <br>
-            <%= f.password_field :password, :placeholder => :password %>
-            <br></br>
-            <%= submit_tag("Log In", :style => "width: 100px; background-color: #c49102;") %>
+        </div>
+        
+        <div>
+            <% if flash[:message] %>
+            <p style="color:#FF0000";><%= flash[:message] %></p>
+            <% end %>
+        </div>
+        <div>
+            <%= form_with url:'/sessions', local: true, method: :post do |f| %>
 
-        <% end %>
+                <%= f.text_field :username, :placeholder => :username %><br>
+                <br>
+                <%= f.password_field :password, :placeholder => :password %>
+                <br></br>
+                <%= submit_tag("Log In", :style => "width: 100px; background-color: #c49102;") %>
 
+            <% end %>
+        </div>
     </div>
 </body>

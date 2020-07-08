@@ -1,11 +1,4 @@
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Upcoming Events</title>
-<link rel="stylesheet" href="#">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-</head>
 
 <body>
     <div>
@@ -25,15 +18,12 @@
                     <% if flash[:message] %>
                     <p style="color:#FF0000";><%= flash[:message] %></p>
                     <% end %>
-                    
                 </div>
 
                 <div>
-                   
-                   
-                        <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF";>Upcoming Events</h1>
-                        <%= link_to "Create New Event", new_event_path %>
-                        <%= render 'searchform' %>
+                    <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF";>Upcoming Events</h1>
+                    <%= link_to "Create New Event", new_event_path %>
+                    <%= render 'searchform' %>
                     <br>
                 </div>
 
@@ -42,13 +32,14 @@
 <br>
         <div>
             <% @events.each do |event| %>
+                <% ed = event.date %>
+                <%= ed.strftime("%m/%d/%Y") %> -
                 <% if @user %>
                     <%= link_to event.title, user_event_path(@user, event) %> -
                 <% else %>
                     <%= link_to event.title, event_path(event) %> -
                 <% end %>
-                <% ed = event.date %>
-                <%= ed.strftime("%m/%d/%Y") %> -
+                
                 <%= event.category %>
                 <br>
             <% end %>
