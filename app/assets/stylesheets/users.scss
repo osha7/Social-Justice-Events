@@ -2,13 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-
 body {
-    background-color: #233342;
-    color: #c49102;
-    text-align: center;
-    font-family: roboto;
+    background-color: #233342  !important;
+    color: #c49102    !important;
+    text-align: center  !important;
+    font-family: roboto !important;
 }
 
 .field_with_errors {

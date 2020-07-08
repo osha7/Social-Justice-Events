@@ -9,20 +9,22 @@ html {
 //   all: unset;
 // }
 
-.home-bg {
-  
-  // background: url(images/home-bg.jpg) no-repeat center center fixed !important;
-  background-image: url("img2.jpeg") !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
-  background-size: cover !important;
-  // background-color: #233342 !important;
-  color: #c49102 !important;
-  text-align: center !important;
-  font-family: roboto !important;
-}
+body {
+    
+    // background: url(images/home-bg.jpg) no-repeat center center fixed !important;
+    // background-image: url("img2.jpeg") !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    
+    background-color: #233342 !important;
+    color: #c49102 !important;
+    text-align: center !important;
+    font-family: roboto !important;
+  }
 
+// ----------------------------------------------
 *{
   padding: 0;
   margin: 0;
@@ -91,9 +93,9 @@ html {
   font-family: roboto !important;
   text-align: center  ;
 
-transition: 0.5s ease !important;
-cursor: pointer !important;
-margin:30px !important;
+  transition: 0.5s ease !important;
+  cursor: pointer !important;
+  margin:30px !important;
 }
 
 .card-image {

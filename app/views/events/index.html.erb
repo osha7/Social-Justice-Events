@@ -1,54 +1,65 @@
-<div>
-    <br>
 
-    <%if @user %>
-        <%#= @user.name || @user.username %> 
-        <h1 style="color:#FFFFFF";>RSVP'd</h1>
-        <h3 style="color:#FFFFFF";>Upcoming Events</h3><br>
-        <%= render 'searchform' %>
-        <br>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>All Events</title>
+            <link rel="stylesheet" href="assets/stylesheets/events_index.css">
+            <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        </head>
+        <body>
+            <main>
 
-    <% else %>
+                <%if @user %>
+                    <%#= @user.name || @user.username %> 
+                    <h1 style="color:#FFFFFF";>RSVP'd</h1>
+                    <h3 style="color:#FFFFFF";>Upcoming Events</h3><br>
+                    <%= render 'searchform' %>
+                    <br>
 
-        <div>
-            <br>
-            <% if flash[:message] %>
-            <p style="color:#FF0000";><%= flash[:message] %></p>
-            <% end %>
-            
-        </div>
-
-        <div>
-            <%= link_to "Create New Event", new_event_path %>
-            <br>
-                <h1 style="color:#FFFFFF";>Upcoming Events</h1>
-                <%= render 'searchform' %>
-            <br>
-        </div>
-
-    <% end %>
-
-        <div>
-            <% @events.each do |event| %>
-                <% if @user %>
-                    <%= link_to event.title, user_event_path(@user, event) %> -
                 <% else %>
-                    <%= link_to event.title, event_path(event) %> -
+
+                    <div>
+                        <br>
+                        <% if flash[:message] %>
+                        <p style="color:#FF0000";><%= flash[:message] %></p>
+                        <% end %>
+                        
+                    </div>
+
+                    <div>
+                        <%= link_to "Create New Event", new_event_path %>
+                        <br>
+                            <h1 style="color:#FFFFFF";>Upcoming Events</h1>
+                            <%= render 'searchform' %>
+                        <br>
+                    </div>
+
                 <% end %>
-                <% ed = event.date %>
-                <%= ed.strftime("%m/%d/%Y") %> -
-                <%= event.category %>
-                <br>
-            <% end %>
-        </div>
 
-</div>
-<br></br>
-<br></br>
+                    <div>
+                        <% @events.each do |event| %>
+                            <section class="cards">
+                                <div class="card" style="width: 19rem;">
+                                    <div class="card_image-container">
+                                        <img src="https://images.unsplash.com/photo-1561612217-e5147162fd31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=80"/>
+                                    </div>
+                                    <div class="card_content">
+                                        <p class="card_title text--medium">
+                                            <% if @user %>
+                                                <%= link_to event.title, user_event_path(@user, event) %> -
+                                            <% else %>
+                                                <%= link_to event.title, event_path(event) %> -
+                                            <% end %>
+                                        </p>
+                                        <div class="card_info">
+                                            <p class="text--medium"><%= event.category %></p>
+                                            <p class="card_price text--medium"><% ed = event.date %><%= ed.strftime("%m/%d/%Y") %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        <% end %>
+                    </div>
 
-
-
-
-
-
-
+            </main>
+        </body>
