@@ -7,7 +7,7 @@ class Event < ApplicationRecord
     has_many :users, through: :users_events
                 # @event.users
 
-    validates_presence_of :title, :category, :address, :city, :state, :zip, :date, :time, :about_content
+    validates_presence_of :title, :category, :address, :city, :state, :zip, :time, :about_content
     validates :zip, length: { is: 5 }
     validates_numericality_of :zip
     # validate :date_must_be_after_today
@@ -28,13 +28,5 @@ class Event < ApplicationRecord
     def is_admin?(user)
         self.users_events.where(admin: true).pluck(:user_id).include?(user.id)
     end 
-
-    # def signed_up_for_event  #(((didn't work, instead used validation in UsersEvent Model)))
-    #     #     #byebug
-    #         user_id = @event.users_events.each { |eue| eue.user_id }
-    #         if user_id == current_user.id
-    #             signed_up_for_event
-    #         end
-    # end
         
 end

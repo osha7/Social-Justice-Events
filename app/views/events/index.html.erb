@@ -1,15 +1,23 @@
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="users.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+</head>
 
 <body>
     <div>
         <br>
         <div>
             <%if @user %>
-                <%#= @user.name || @user.username %> 
-                <h1 style="color:#FFFFFF";>RSVP'd</h1>
-                <h3 style="color:#FFFFFF";>Upcoming Events</h3><br>
-                <%= render 'searchform' %>
-                <br>
+                <div>
+                    <%#= @user.name || @user.username %> 
+                    <h1 class="animate__animated animate__fadeIn" style="color:#FFFFFF";>RSVP'd</h1>
+                    <h3 class="animate__animated animate__fadeIn" style="color:#FFFFFF";>Upcoming Events</h3><br>
+                    <%= render 'searchform' %>
+                    <br>
+                </div>
 
             <% else %>
 

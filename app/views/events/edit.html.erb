@@ -1,12 +1,23 @@
-<div class="container">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create An Event</title>
+    <link rel="stylesheet" href="users.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+</head>
+
+<body>
+    <div>
+    <br>
+        <h1 class="animate__animated animate__fadeIn">Edit Event</h1>
+        <p>Go to <%= link_to "All Events", events_path %></p>
+
+        <%= render 'form' %>
 <br>
-    <h1>Edit Event</h1>
-    <p>Go to <%= link_to "All Events", events_path %></p>
+        <%= form_with model: @event , method: "delete" do %>
+            <%= submit_tag "Delete Event", :style => "width: 150px; background-color: #ff0000;" %>
+        <% end %>
+    </div>
+</body>
 
-    <%= render 'form' %>
-
-    <%= form_with model: @event , method: "delete" do %>
-        <%= submit_tag "Delete Event" %>
-    <% end %>
-
-</div>
+<%#= f.submit(:style => "width: 150px; background-color: #c49102;") %>

@@ -1,9 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create An Event</title>
+    <link rel="stylesheet" href="users.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+</head>
 
-<div>
-<br>
-    <h1 style="color: #ffffff;">Create an Event</h1>
-    <p>Go to <%= link_to "All Events", events_path %></p>
+<body>
+    <div>
+    <br>
+        <h1 class="animate__animated animate__fadeIn">Create An Event</h1>
+        <p>Go to <%= link_to "All Events", events_path %></p>
 
-    <%= render 'form' %>
+        <%= render 'form' %>
 
-</div>
+    </div>
+</body>
