@@ -1,52 +1,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Justice Events</title>
+    <title>Your Dashboard</title>
     <link rel="stylesheet" href="users.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 </head>
 <body>
 
 <br></br>
 
+<div>
+    <div>
+        <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF"; > Hello <%= @user.name %> </h1> 
+        <%= link_to "See All Events", events_path %><br>
+        <%= link_to "Create New Event", new_user_event_path(@user) %>
+    <div>
 
-<h2 style="color:#FFFFFF";> Hello <%= @user.name %> </h2> 
-
-<%= link_to "See All Events", events_path %>
 <br>
-<%= link_to "Create New Event", new_user_event_path(@user) %>
-
-<br></br>
-<%# raise.params %> <%# %>
-- -<br>
-<h5>Click <%= link_to "Here", user_events_path(@user) %> To See ALL The Events You're Going To!</h5>
-                        <%# byebug %>
-                            <%# @user.events.each do |event| %>
+    <div>
+        <%# raise.params %> <%# %>
+        <h5>Click <%= link_to "Here", user_events_path(@user) %> To See ALL The Events You're Going To!</h5>
                                 <%# byebug %>
-                                <%#= link_to event.title, event_path(event) %> -
-                                <%# ed = event.date %>
-                                <%#= ed.strftime("%m/%d/%Y") %> -
-                                <%# et = event.time %>
-                                <%#= et.strftime("%I:%M %p") %>
-                                <br>
-                            <%# end %> <%# %>
+                                    <%# @user.events.each do |event| %>
+                                        <%# byebug %>
+                                        <%#= link_to event.title, event_path(event) %> -
+                                        <%# ed = event.date %>
+                                        <%#= ed.strftime("%m/%d/%Y") %> -
+                                        <%# et = event.time %>
+                                        <%#= et.strftime("%I:%M %p") %>
+                                        <br>
+                                    <%# end %> <%# %>
+    </div>
 
-<br>
-<h5>Events You Have Created:</h5>
-<%# byebug %><%# %>
-    <% if @user.users_events.where(admin: true) %>
-       <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
-        <% @user.users_events.where(admin: true).reverse.each do |event| %>
-            <% if @user %>
-                <%= link_to Event.all.find(event.event_id).title, user_event_path(@user, event) %> -
-            <% else %>
-                <%= link_to Event.all.find(event.event_id).title, event_path(event.event_id) %> -
+    <div>
+        <br>
+        <h5>Events You Have Created:</h5>
+        <%# byebug %><%# %>
+            <% if @user.users_events.where(admin: true) %>
+            <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
+                <% @user.users_events.where(admin: true).reverse.each do |event| %>
+                    <% if @user %>
+                        <%= link_to Event.all.find(event.event_id).title, user_event_path(@user, event) %> -
+                    <% else %>
+                        <%= link_to Event.all.find(event.event_id).title, event_path(event.event_id) %> -
+                    <% end %>
+                    <% ed = Event.all.find(event.event_id).date %>
+                    <%= ed.strftime("%m/%d/%Y") %>
+                    <br>        
+                <% end %>
             <% end %>
-            <% ed = Event.all.find(event.event_id).date %>
-            <%= ed.strftime("%m/%d/%Y") %>
-            <br>        
-        <% end %>
-    <% end %>
+    </div>
 
+</div>
  
 
 
