@@ -21,7 +21,7 @@ class EventsController < ApplicationController
         # @events = Event.order_by_date.where(Event.arel_table[:title].matches("%#{params[:search]}%")) #https://www.scimedsolutions.com/blog/arel-part-i-case-insensitive-searches-with-partial-matching
       
         @events = Event.order_by_date.where(
-            %i(title category about_content)
+            %i(title category about_content state)
             .map { |field| Event.arel_table[field].matches("%#{params[:search]}%")}
             .inject(:or)
         )     #https://www.thetopsites.net/article/53226084.shtml
@@ -50,6 +50,11 @@ class EventsController < ApplicationController
     end
 
     def show
+        #byebug
+        if @event == nil
+            nested_event
+        end
+
     end
 
 
@@ -93,11 +98,16 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:title, :category, :address, :city, :state, :zip, :date, :time, :about_content, users_event_attributes:[:comment, :user_id])
+        params.require(:event).permit(:title, :category, :address, :city, :state, :zip, :date, :time, :about_content, users_event_attributes:[:comment, :user_id, :event_id])
     end
 
     def set_event
         @event = Event.find_by(id: params[:id])
+    end
+
+    def nested_event
+        ue = UsersEvent.find_by(id: params[:id]).event_id
+        @event = Event.find_by(id: ue)
     end
     
 end

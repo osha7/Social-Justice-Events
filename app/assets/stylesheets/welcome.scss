@@ -7,20 +7,20 @@
 //   all: unset;
 // }
 
-// body {
+.image {
     
-//     background: url(images/home-bg.jpg) no-repeat center center fixed !important;
-//     background-image: url("img2.jpeg");
-//     background-position: center center;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-//     background-size: cover;
+    background: url(images/home-bg.jpg) no-repeat center center fixed !important;
+    background-image: url("img2.jpeg")  !important;
+    background-position: center center  !important;
+    background-repeat: no-repeat  !important;
+    background-attachment: fixed  !important;
+    background-size: cover  !important;
     
-//     background-color: #233342 !important;
-//     color: #c49102;
-//     text-align: center;
-//     font-family: roboto !important;
-//   }
+    background-color: #233342 !important;
+    color: #c49102  !important;
+    text-align: center  !important;
+    font-family: roboto !important;
+  }
 
 // ----------------------------------------------
 *{
