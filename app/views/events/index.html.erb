@@ -15,7 +15,14 @@
                     <%#= @user.name || @user.username %> 
                     <h1 class="animate__animated animate__fadeIn" style="color:#FFFFFF";>RSVP'd</h1>
                     <h3 class="animate__animated animate__fadeIn" style="color:#FFFFFF";>Upcoming Events</h3><br>
-                    <%= render 'searchform' %>
+                </div>
+                <br>
+                <div>
+                    <% if @events.empty? %>
+                        <p><%= "You haven't signed up for any events yet!" %><p><br>
+                        <p style="color: #ffffff;"><%= "We can help you find events in your state." %> <p>
+                        <%= render 'statesearch' %>
+                    <% end %>
                     <br>
                 </div>
 

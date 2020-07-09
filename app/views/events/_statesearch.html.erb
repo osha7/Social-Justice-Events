@@ -1,0 +1,7 @@
+<div>
+    <%= form_tag ('/search'), :method => "get" do %>
+        <%= label_tag(:search, "Add in your 2 letter state code:") %><br>
+        <%= text_field_tag :search, params[:search], "size" => 3 %>
+        <%= submit_tag("State Search", :name => nil) %>
+    <% end %>
+</div>

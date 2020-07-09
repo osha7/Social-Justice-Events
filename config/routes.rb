@@ -28,6 +28,7 @@ resources :users_events, only: [:create, :destroy]
 get 'rsvps', to: "users_events#index"
 
 get 'search', to: "events#search"
+get 'search', to: "events#search_by_state", as: "state_search"
 
 get 'users', to: "users#users"
 

@@ -10,7 +10,7 @@ class Event < ApplicationRecord
     validates_presence_of :title, :category, :address, :city, :state, :zip, :time, :about_content
     validates :zip, length: { is: 5 }
     validates_numericality_of :zip
-    # validate :date_must_be_after_today
+                # validate :date_must_be_after_today
     validates_with DateValidator, on: :create
     
     scope :future_date, lambda { where("date > ?", Date.today) }
@@ -18,12 +18,14 @@ class Event < ApplicationRecord
                 # scope allows you to specify an ARel query that can be used as a method call to the model (or association objects)
                 # equivalent to: 
     scope :order_by_date, -> {order("date")}
+
+    # scope :users_state, -> { where("state" == )}
     
-    # def date_must_be_after_today       #(((this method went into DateValidator)))
-    #     if date <= Time.now
-    #         errors.add(:date, "must be after today")
-    #     end
-    # end
+                # def date_must_be_after_today       #(((this method went into DateValidator)))
+                #     if date <= Time.now
+                #         errors.add(:date, "must be after today")
+                #     end
+                # end
 
     def is_admin?(user)
         self.users_events.where(admin: true).pluck(:user_id).include?(user.id)
