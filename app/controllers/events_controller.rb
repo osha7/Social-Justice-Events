@@ -37,7 +37,10 @@ class EventsController < ApplicationController
     end
 
     def new
-
+        if current_user == nil
+            redirect_to login_path
+            flash[:message] = "You must be logged in to create an event"
+        end
         @event = Event.new
     end
     
@@ -58,6 +61,10 @@ class EventsController < ApplicationController
 
     def show
         #byebug
+        if current_user == nil
+            redirect_to login_path
+            flash[:message] = "You must be logged in to see events"
+        end
         if @event == nil
             nested_event
         end

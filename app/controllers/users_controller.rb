@@ -21,10 +21,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        
-        @user = User.find_by(id: params[:id])
-        authorize(@user)
-        
+        if current_user == nil
+            redirect_to login_path
+            flash[:message] = "You must be logged in to access your dashboard"
+        else
+            @user = User.find_by(id: params[:id])
+            authorize(@user)
+        end
     end
 
     private

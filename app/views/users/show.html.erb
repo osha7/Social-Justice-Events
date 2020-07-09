@@ -33,7 +33,7 @@
 
         <div>
             <br>
-            <h5><u>Events You Have Created:</u></h5>
+            <h5><u>Events You Have Created</u></h5>
             <%# byebug %><%# %>
                 <% if @user.users_events.where(admin: true).empty? %>
                     <p style="color: #ffffff;"><%= "You haven't created any events yet!" %><p>
