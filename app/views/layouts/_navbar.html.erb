@@ -20,6 +20,11 @@
               <li class="nav-item">
                 <a class="nav-link" style="color: #2B4D59;" href="/events/new">CREATE EVENT</a>
               </li>
+              <% if current_user != nil %>
+                <li class="nav-item">
+                <a class="nav-link" style="color: #2B4D59;" href="<%= logout_path %>">LOG OUT<span class="sr-only">(current)</span></a>
+                </li>
+              <% end %>
             </ul>
           </div>
         </nav>
