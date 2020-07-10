@@ -39,13 +39,14 @@
                     <p style="color: #ffffff;"><%= "You haven't created any events yet!" %><p>
                 <% else @user.users_events.where(admin: true) %>
                                             <%# @user.users_events.where(admin: true){order("date")}.each do |event| %> <%# %>
-                    <% @user.users_events.where(admin: true).reverse.each do |event| %>
+                    <% @user.users_events.where(admin: true).reverse.each do |uevent| %>
+                        <%# byebug %>
                         <% if @user %>
-                            <%= link_to Event.all.find(event.event_id).title, user_event_path(@user, event) %> -
+                            <%= link_to uevent.event.title, user_event_path(@user, uevent.event) %> -
                         <% else %>
-                            <%= link_to Event.all.find(event.event_id).title, event_path(event.event_id) %> -
+                            <%= link_to uevent.event.title, event_path(event.event_id) %> -
                         <% end %>
-                        <% ed = Event.all.find(event.event_id).date %>
+                        <% ed = uevent.event.date %>
                         <%= ed.strftime("%m/%d/%Y") %>
                         <br>        
                     <% end %>

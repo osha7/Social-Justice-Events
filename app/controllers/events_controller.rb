@@ -77,6 +77,7 @@ class EventsController < ApplicationController
 
 
     def edit
+        @event = Event.find_by(id: params[:id])
         if @event.is_admin?(current_user)
             render :edit
         else 
@@ -120,6 +121,7 @@ class EventsController < ApplicationController
     end
 
     def set_event
+        #byebug
         @event = Event.find_by(id: params[:id])
     end
 
