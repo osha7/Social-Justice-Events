@@ -29,11 +29,15 @@ class EventsController < ApplicationController
     end
 
     def search_by_state
+        # @events = Event.order_by_date.where("(state) LIKE ?", "%" + params[:search].upcase + "%")
+        # render 'search'
+
         @events = Event.order_by_date.where(
             %i(state)
             .map { |field| Event.arel_table[field].matches("%#{params[:search]}%")}
+        .inject(:or)
         )
-        redirect_to search_path
+        render 'search'
     end
 
     def new

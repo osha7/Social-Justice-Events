@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+see the "sje_schema.drawio" file in this repo for the schema layout design of desired db tables
+or find the original process here:
+https://drive.google.com/file/d/1l6H8aBnTElgXZJtebtkBnrN_lbkeZcon/view?usp=sharing
 
-Things you may want to cover:
+Trello Public Board for Project:
+https://trello.com/invite/b/FlOYzSaG/216bae0d178329e73fbb446a5a9054c3/proj-3-rails
 
-* Ruby version
+Github Repo url:
+https://github.com/osha7/Social-Justice-Events
 
-* System dependencies
+Medium Blog:
+https://medium.com/@ogroetz/where-like-doesnt-like-always-cut-it-ca0a59565f88
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Youtube Video of App:

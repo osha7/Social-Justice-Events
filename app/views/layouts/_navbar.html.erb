@@ -7,11 +7,11 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" style="color: #2B4D59;" href="/">HOME<span class="sr-only">(current)</span></a>
+                <a class="nav-link" style="color: #2B4D59;" href="<%= root_path %>">HOME<span class="sr-only">(current)</span></a>
               </li>
               <% if current_user != nil %>
                 <li class="nav-item">
-                  <%= link_to "DASHBOARD", user_path(current_user.id) %>
+                <a class="nav-link" style="color: #2B4D59;" href="<%= user_path(current_user.id) %>">DASHBOARD<span class="sr-only">(current)</span></a>
                 </li>
               <% end %>
               <li class="nav-item">
