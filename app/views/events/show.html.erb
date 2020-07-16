@@ -52,7 +52,7 @@
     <br></br>
     <div>
 
-        <u><%= @event.users_events.count %> RSVP's: </u><br>
+    <h5 style="color:#FFFFFF";><u><%= @event.users_events.count %> RSVP's: </u></h5>
             <% @event.users_events.each do |ue| %>
                 <%# byebug %>
             <%= ue.user.name || ue.user.username %> said:

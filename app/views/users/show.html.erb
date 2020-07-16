@@ -10,7 +10,7 @@
     <br></br>
     <div>
         <div>
-            <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF"; > Hello <%= @user.name %> </h1> 
+            <h1 class="animate__animated animate__backInUp" style="color:#FFFFFF"; > Hello <%= @user.name || @user.username.capitalize %> </h1> 
             <%#= link_to "See All Events", events_path %>
             <%= link_to "Create New Event", new_user_event_path(@user) %>
         <div>
