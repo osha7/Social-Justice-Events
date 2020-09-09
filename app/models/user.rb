@@ -29,11 +29,6 @@ class User < ApplicationRecord
         # creating an array of event instances from those id's
     end
 
-    # def signed_up_for_event(users_current_event)
-    #     #byebug
-    #     self.id == users_current_event.user_id
-    # end
-
 
 
 end

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
             # is this a ^callback^ ?
+    
     def index
         #byebug
         if params[:user_id]
@@ -14,19 +15,11 @@ class EventsController < ApplicationController
         end
     end
 
-
     def search
-        # @events = Event.order_by_date.where("(title || about_content || category) LIKE ?", "%" + params[:search] + "%")
-        # ^case sensitive^ or (below) can only search one attr/field
-        # @events = Event.order_by_date.where(Event.arel_table[:title].matches("%#{params[:search]}%")) #https://www.scimedsolutions.com/blog/arel-part-i-case-insensitive-searches-with-partial-matching
-      
-        @events = Event.order_by_date.where(
-            %i(title category about_content state)
-            .map { |field| Event.arel_table[field].matches("%#{params[:search]}%")}
-            .inject(:or)
-        )     #https://www.thetopsites.net/article/53226084.shtml
-       
+        @events = Event.search(params)
     end
+
+    
 
     def search_by_state
         # @events = Event.order_by_date.where("(state) LIKE ?", "%" + params[:search].upcase + "%")

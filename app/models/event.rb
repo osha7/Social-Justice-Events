@@ -30,5 +30,18 @@ class Event < ApplicationRecord
     def is_admin?(user)
         self.users_events.where(admin: true).pluck(:user_id).include?(user.id)
     end 
+
+    def self.search(params)
+        # @events = Event.order_by_date.where("(title || about_content || category) LIKE ?", "%" + params[:search] + "%")
+        # ^case sensitive in PG^ or (below) can only search one attr/field
+        # @events = Event.order_by_date.where(Event.arel_table[:title].matches("%#{params[:search]}%")) #https://www.scimedsolutions.com/blog/arel-part-i-case-insensitive-searches-with-partial-matching
+      
+        @events = Event.order_by_date.where(
+            %i(title category about_content state)
+            .map { |field| Event.arel_table[field].matches("%#{params[:search]}%")}
+            .inject(:or)
+        )     #https://www.thetopsites.net/article/53226084.shtml
+       
+    end
         
 end
