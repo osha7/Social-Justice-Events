@@ -9,8 +9,8 @@
 
 .image {
     
-    background: url(images/home-bg.jpg) no-repeat center center fixed !important;
-    background-image: url("img2.jpeg")  !important;
+    // background: url(images/home-bg.jpg) no-repeat center center fixed !important;
+    background-image: url("https://i.imgur.com/14KwH03.jpg")  !important;
     background-position: center center  !important;
     background-repeat: no-repeat  !important;
     background-attachment: fixed  !important;
@@ -98,7 +98,7 @@
 
 .card-image {
   grid-area: image    !important;
-  background: url("img1.jpg") !important;
+  background: url("https://i.imgur.com/g6s90oG.jpg") !important;
   border-top-left-radius: 15px    !important;   
   border-top-right-radius: 15px   !important;
   background-size: cover  !important;
