@@ -58,5 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.5'
 
 gem 'omniauth'
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+# gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-github'
 gem 'dotenv-rails'
