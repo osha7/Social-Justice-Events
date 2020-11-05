@@ -8,7 +8,8 @@ get '/login' => "sessions#new"
 post '/sessions' => "sessions#create"
 get '/logout' => "sessions#destroy"
 
-get '/auth/:provider/callback' => 'sessions#create'
+#get '/auth/:provider/callback' => 'sessions#create'
+get '/auth/github/callback' => 'sessions#create'
         # provider is also called 'STRATEGY'
 
 get '/signup' => 'users#new'
