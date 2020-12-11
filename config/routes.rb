@@ -10,6 +10,7 @@ get '/logout' => "sessions#destroy"
 
 #get '/auth/:provider/callback' => 'sessions#create'
 get '/auth/github/callback' => 'sessions#create'
+get '/auth/google/callback' => 'sessions#create'
         # provider is also called 'STRATEGY'
 
 get '/signup' => 'users#new'
